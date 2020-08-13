@@ -1,0 +1,12 @@
+
+{% load static %}
+
+{% if recent_categories %}
+<ul>
+    {% for category in recent_categories %}
+    <li>{{ category }}</li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No categories found.</p>
+{% endif %}
