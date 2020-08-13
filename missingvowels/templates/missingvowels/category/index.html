@@ -1,10 +1,10 @@
-
 {% load static %}
 
 {% if recent_categories %}
 <ul>
     {% for category in recent_categories %}
-    <li>{{ category }}</li>
+    {%  url 'missingvowels:category' category.id as category_url %}
+    <li><a href="{{ category_url }}">{{ category }}</a></li>
     {% endfor %}
 </ul>
 {% else %}

@@ -9,3 +9,9 @@ class CategoryIndexView(generic.ListView):
 
     def get_queryset(self):
         return Category.objects.order_by("-id")[:5]
+
+
+class CategoryDetailView(generic.DetailView):
+    template_name = "missingvowels/category/detail.html"
+    model = Category
+    context_object_name = "category"
