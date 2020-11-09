@@ -2,8 +2,20 @@
 
 <h1>{{ category }}</h1>
 
-<ol>
-{% for answer in category.answer_set.all %}
-<li>{{answer}}</li>
-{% endfor %}
-</ol>
+<form action="{% url 'missingvowels:answer' %}" method="post">
+    {% csrf_token %}
+    <div>
+    {% for answer in category.answer_set.all %}
+    <div>
+        <div>
+            {{answer}}
+        </div>
+        <div>
+            <input type="text" name="answer_{{ answer.id }}" id="answer_{{ answer.id }}" />
+        </div>
+    </div>
+    {% endfor %}
+    </div>
+
+    <input type="submit" value="Submit">
+</form>
