@@ -25,10 +25,11 @@ const Question = ({answered}) => (
 )
 
 const Category = ({title, answered}) => (
-    <div>
+    <React.Fragment>
+        <h2>{title}</h2>
         <h4>{answered ? "True":"False"}</h4>
         <Question answered={answered}/>
-    </div>
+    </React.Fragment>
 )
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
       <header className="App-header">
           <h2>Page header.</h2>
       </header>
+        <input type={"checkbox"} id={"answeredDebug"} />
       <Category title={"My missing vowels test."} answered={false}/>
     </div>
   );
